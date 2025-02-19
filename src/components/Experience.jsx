@@ -1,20 +1,19 @@
 import { useState } from "react";
-import DeleteIcon from "../svg/delete.svg";
 
-function Education() {
-  const [school, setSchool] = useState("");
-  const [degree, setDegree] = useState("");
+function Experience() {
+  const [companyName, setCompanyName] = useState("");
+  const [position, setPosition] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [location, setLocation] = useState("");
-  const [educations, setEducations] = useState([]);
+  const [description, setDescription] = useState("");
 
-  const handleSchool = (e) => {
-    setSchool(e.target.value);
+  const handleCompanyName = (e) => {
+    setCompanyName(e.target.value);
   };
 
-  const handleDegree = (e) => {
-    setDegree(e.target.value);
+  const handlePosition = (e) => {
+    setPosition(e.target.value);
   };
 
   const handleStartDate = (e) => {
@@ -29,46 +28,14 @@ function Education() {
     setLocation(e.target.value);
   };
 
-  const addEducation = () => {
-    if (school.trim() !== "" && degree.trim() !== "") {
-      setEducations((prevEducations) => [
-        ...prevEducations,
-        { school, degree, startDate, endDate, location },
-      ]);
-      setSchool("");
-      setDegree("");
-      setStartDate("");
-      setEndDate("");
-      setLocation("");
-    }
-  };
-
-  const removeEducation = (index) => {
-    const updatedEducations = educations.filter((_, i) => i !== index);
-    setEducations(updatedEducations);
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
   };
 
   return (
     <div className="flex flex-col gap-4 p-4 md:w-[35%] lg:w-[30%]">
       <h1 className="text-2xl font-bold">Education</h1>
-      <div className="flex flex-col gap-4">
-        {educations.map((education, index) => (
-          <div
-            key={index}
-            className="flex flex-wrap items-center justify-between gap-4 rounded-md border-2 border-red-300 p-2"
-          >
-            <h2 className="text-lg font-bold break-all">{education.school}</h2>
-            <p className="text-md">{education.degree}</p>
-            <img
-              src={DeleteIcon}
-              onClick={() => removeEducation(index)}
-              alt="delete-icon"
-              className="size-6 cursor-pointer"
-            ></img>
-          </div>
-        ))}
-      </div>
-      <label htmlFor="school" className="flex flex-col font-medium">
+      <label htmlFor="name" className="flex flex-col font-medium">
         School
         <input
           type="text"
@@ -123,14 +90,8 @@ function Education() {
           onChange={handleLocation}
         ></input>
       </label>
-      <button
-        onClick={addEducation}
-        className="w-[30%] cursor-pointer rounded-md bg-blue-500 p-2 text-white"
-      >
-        Add Education
-      </button>
     </div>
   );
 }
 
-export default Education;
+export default Experience;
