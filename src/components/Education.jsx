@@ -90,28 +90,30 @@ function Education() {
           onChange={handleDegree}
         ></input>
       </label>
-      <label htmlFor="startDateNum" className="flex flex-col font-medium">
-        Start Date
-        <input
-          type="text"
-          id="startDateNum"
-          placeholder="Example: 2018"
-          className="rounded-md border-2 border-gray-300 p-2 font-normal"
-          value={startDate}
-          onChange={handleStartDate}
-        ></input>
-      </label>
-      <label htmlFor="endDate" className="flex flex-col font-medium">
-        End Date
-        <input
-          type="text"
-          id="endDate"
-          placeholder="Example: 2022"
-          className="rounded-md border-2 border-gray-300 p-2 font-normal"
-          value={endDate}
-          onChange={handleEndDate}
-        ></input>
-      </label>
+      <div className="flex flex-col gap-7 md:flex-row">
+        <label htmlFor="startDateNum" className="flex flex-col font-medium">
+          Start Date
+          <input
+            type="text"
+            id="startDateNum"
+            placeholder="Example: 2018"
+            className="w-full rounded-md border-2 border-gray-300 p-2 font-normal"
+            value={startDate}
+            onChange={handleStartDate}
+          ></input>
+        </label>
+        <label htmlFor="endDate" className="flex flex-col font-medium">
+          End Date
+          <input
+            type="text"
+            id="endDate"
+            placeholder="Example: 2022"
+            className="w-full rounded-md border-2 border-gray-300 p-2 font-normal"
+            value={endDate}
+            onChange={handleEndDate}
+          ></input>
+        </label>
+      </div>
       <label htmlFor="location" className="flex flex-col font-medium">
         Location
         <input
@@ -125,7 +127,7 @@ function Education() {
       </label>
       <button
         onClick={addEducation}
-        className="w-[30%] cursor-pointer rounded-md bg-blue-500 p-2 text-white"
+        className="w-[50%] cursor-pointer rounded-md bg-blue-500 p-2 text-white sm:w-[30%] md:w-[60%] xl:w-[40%]"
       >
         Add Education
       </button>
