@@ -80,7 +80,7 @@ function Experience() {
         <input
           type="text"
           id="companyName"
-          placeholder="Example: Harvard University"
+          placeholder="Example: Royal Bank of Canada"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
           value={companyName}
           onChange={handleCompanyName}
@@ -91,7 +91,7 @@ function Experience() {
         <input
           type="text"
           id="position"
-          placeholder="Example: Bachelor of Science in Computer Science"
+          placeholder="Example: Financial Analyst"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
           value={position}
           onChange={handlePosition}
@@ -103,7 +103,7 @@ function Experience() {
           <input
             type="text"
             id="startDateNum"
-            placeholder="Example: 2018"
+            placeholder="Example: 2019"
             className="rounded-md border-2 border-gray-300 p-2 font-normal"
             value={startDate}
             onChange={handleStartDate}
@@ -114,7 +114,7 @@ function Experience() {
           <input
             type="text"
             id="endDate"
-            placeholder="Example: 2022"
+            placeholder="Example: 2024"
             className="rounded-md border-2 border-gray-300 p-2 font-normal"
             value={endDate}
             onChange={handleEndDate}
@@ -126,7 +126,7 @@ function Experience() {
         <input
           type="text"
           id="location"
-          placeholder="Example: Cambridge, MA"
+          placeholder="Example: Toronto, CA"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
           value={location}
           onChange={handleLocation}
