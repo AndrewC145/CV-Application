@@ -7,6 +7,7 @@ function App() {
     <div className="container mx-auto">
       <PersonalInfo />
       <Education />
+      <Experience />
     </div>
   );
 }

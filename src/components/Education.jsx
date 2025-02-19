@@ -80,7 +80,7 @@ function Education() {
         ></input>
       </label>
       <label htmlFor="degree" className="flex flex-col font-medium">
-        Email
+        Degree
         <input
           type="text"
           id="degree"
@@ -91,7 +91,7 @@ function Education() {
         ></input>
       </label>
       <label htmlFor="startDateNum" className="flex flex-col font-medium">
-        Phone Number
+        Start Date
         <input
           type="text"
           id="startDateNum"
@@ -102,7 +102,7 @@ function Education() {
         ></input>
       </label>
       <label htmlFor="endDate" className="flex flex-col font-medium">
-        Location
+        End Date
         <input
           type="text"
           id="endDate"

@@ -35,30 +35,30 @@ function Experience() {
   return (
     <div className="flex flex-col gap-4 p-4 md:w-[35%] lg:w-[30%]">
       <h1 className="text-2xl font-bold">Education</h1>
-      <label htmlFor="name" className="flex flex-col font-medium">
-        School
+      <label htmlFor="companyName" className="flex flex-col font-medium">
+        Company Name
         <input
           type="text"
-          id="school"
+          id="companyName"
           placeholder="Example: Harvard University"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
-          value={school}
-          onChange={handleSchool}
+          value={companyName}
+          onChange={handleCompanyName}
         ></input>
       </label>
-      <label htmlFor="degree" className="flex flex-col font-medium">
+      <label htmlFor="position" className="flex flex-col font-medium">
         Email
         <input
           type="text"
-          id="degree"
+          id="position"
           placeholder="Example: Bachelor of Science in Computer Science"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
-          value={degree}
-          onChange={handleDegree}
+          value={position}
+          onChange={handlePosition}
         ></input>
       </label>
       <label htmlFor="startDateNum" className="flex flex-col font-medium">
-        Phone Number
+        Start Date
         <input
           type="text"
           id="startDateNum"
@@ -69,7 +69,7 @@ function Experience() {
         ></input>
       </label>
       <label htmlFor="endDate" className="flex flex-col font-medium">
-        Location
+        End Date
         <input
           type="text"
           id="endDate"
@@ -83,12 +83,21 @@ function Experience() {
         Location
         <input
           type="text"
-          id="endDate"
+          id="location"
           placeholder="Example: Cambridge, MA"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
           value={location}
           onChange={handleLocation}
         ></input>
+      </label>
+      <label htmlFor="description" className="flex flex-col font-medium">
+        Description
+        <textarea
+          id="description"
+          value={description}
+          onChange={handleDescription}
+          className="rounded-md border-2 border-gray-300 p-2 font-normal"
+        ></textarea>
       </label>
     </div>
   );
