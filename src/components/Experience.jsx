@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DeleteIcon from "../svg/delete.svg";
 
 function Experience() {
   const [companyName, setCompanyName] = useState("");
@@ -7,6 +8,7 @@ function Experience() {
   const [endDate, setEndDate] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [experience, setExperience] = useState([]);
 
   const handleCompanyName = (e) => {
     setCompanyName(e.target.value);
@@ -32,9 +34,47 @@ function Experience() {
     setDescription(e.target.value);
   };
 
+  const addExperience = () => {
+    if (companyName.trim() !== "" && position.trim() !== "") {
+      setExperience((prevExperience) => [
+        ...prevExperience,
+        { companyName, position, startDate, endDate, location, description },
+      ]);
+
+      setCompanyName("");
+      setPosition("");
+      setStartDate("");
+      setEndDate("");
+      setLocation("");
+      setDescription("");
+    }
+  };
+
+  const removeExperience = (index) => {
+    const updatedExperiences = experience.filter((_, i) => i !== index);
+    setExperience(updatedExperiences);
+  };
+
   return (
     <div className="flex flex-col gap-4 p-4 md:w-[35%] lg:w-[30%]">
       <h1 className="text-2xl font-bold">Work Experience</h1>
+      <div className="flex flex-col gap-4">
+        {experience.map((exp, index) => (
+          <div
+            key={index}
+            className="flex flex-wrap items-center justify-between gap-4 rounded-md border-2 border-red-300 p-2"
+          >
+            <h2 className="text-lg font-bold break-all">{exp.companyName}</h2>
+            <p className="text-md">{exp.position}</p>
+            <img
+              src={DeleteIcon}
+              onClick={() => removeExperience(index)}
+              alt="delete-icon"
+              className="size-6 cursor-pointer"
+            ></img>
+          </div>
+        ))}
+      </div>
       <label htmlFor="companyName" className="flex flex-col font-medium">
         Company Name
         <input
@@ -101,6 +141,12 @@ function Experience() {
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
         ></textarea>
       </label>
+      <button
+        className="w-[50%] cursor-pointer rounded-md bg-blue-500 p-2 text-white sm:w-[30%] md:w-[60%] xl:w-[40%]"
+        onClick={addExperience}
+      >
+        Add Experience
+      </button>
     </div>
   );
 }
