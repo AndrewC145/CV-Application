@@ -1,7 +1,6 @@
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
-import Resume from "./components/Resume";
 
 function App() {
   return (
@@ -9,7 +8,6 @@ function App() {
       <PersonalInfo />
       <Education />
       <Experience />
-      <Resume />
     </div>
   );
 }

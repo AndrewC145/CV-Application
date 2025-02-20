@@ -98,22 +98,22 @@ function Experience() {
         ></input>
       </label>
       <div className="flex flex-col gap-7 md:flex-row">
-        <label htmlFor="startDateNum" className="flex flex-col font-medium">
+        <label htmlFor="workStart" className="flex flex-col font-medium">
           Start Date
           <input
             type="text"
-            id="startDateNum"
+            id="workStart"
             placeholder="Example: 2019"
             className="rounded-md border-2 border-gray-300 p-2 font-normal"
             value={startDate}
             onChange={handleStartDate}
           ></input>
         </label>
-        <label htmlFor="endDate" className="flex flex-col font-medium">
+        <label htmlFor="workEnd" className="flex flex-col font-medium">
           End Date
           <input
             type="text"
-            id="endDate"
+            id="workEnd"
             placeholder="Example: 2024"
             className="rounded-md border-2 border-gray-300 p-2 font-normal"
             value={endDate}
@@ -121,11 +121,11 @@ function Experience() {
           ></input>
         </label>
       </div>
-      <label htmlFor="location" className="flex flex-col font-medium">
+      <label htmlFor="workLocation" className="flex flex-col font-medium">
         Location
         <input
           type="text"
-          id="location"
+          id="workLocation"
           placeholder="Example: Toronto, CA"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
           value={location}

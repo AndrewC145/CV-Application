@@ -22,6 +22,13 @@ function PersonalInfo() {
     setLocation(e.target.value);
   };
 
+  const handleSubmit = () => {
+    console.log("Full Name:", fullName);
+    console.log("Email:", email);
+    console.log("Phone Number:", phone);
+    console.log("Location:", location);
+  };
+
   return (
     <div className="flex flex-col gap-4 p-4 md:w-[35%] lg:w-[30%]">
       <h1 className="text-2xl font-bold">Personal Information</h1>
@@ -69,6 +76,12 @@ function PersonalInfo() {
           onChange={handleLocation}
         ></input>
       </label>
+      <button
+        className="w-[50%] cursor-pointer rounded-md bg-blue-500 p-2 text-white sm:w-[30%] md:w-[60%] xl:w-[40%]"
+        onClick={handleSubmit}
+      >
+        Submit Info
+      </button>
     </div>
   );
 }
