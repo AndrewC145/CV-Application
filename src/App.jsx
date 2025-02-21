@@ -4,6 +4,7 @@ import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Resume from "./components/Resume";
+import Skills from "./components/Skills";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -54,18 +55,30 @@ function App() {
     },
   ]);
 
+  const [skills, setSkills] = useState([
+    "JavaScript",
+    "React",
+    "Node.js",
+    "Python",
+    "SQL",
+    "HTML",
+    "CSS",
+  ]);
+
   return (
     <div className="container mx-auto flex">
       <div className="flex w-[30%] flex-col gap-4">
         <PersonalInfo personalInfo={personalInfo} handlePersonalInfo={setPersonalInfo} />
         <Education educationInfo={educations} handleEducationInfo={setEducations} />
         <Experience experienceInfo={experiences} handleExperienceInfo={setExperiences} />
+        <Skills skills={skills} handleSkills={setSkills} />
       </div>
       <div className="flex w-[70%]">
         <Resume
           personalInformation={personalInfo}
           educationInformation={educations}
           experienceInformation={experiences}
+          skillsInformation={skills}
         />
       </div>
     </div>
