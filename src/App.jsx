@@ -4,6 +4,7 @@ import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import PersonalSection from "./components/PersonalSection";
+import EducationSection from "./components/EducationSection";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -60,6 +61,7 @@ function App() {
       <Education educationInfo={educations} handleEducationInfo={setEducations} />
       <Experience experienceInfo={experiences} handleExperienceInfo={setExperiences} />
       <PersonalSection personalInformation={personalInfo} />
+      <EducationSection educationInformation={educations} />
     </div>
   );
 }
