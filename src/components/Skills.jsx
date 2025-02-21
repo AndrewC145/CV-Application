@@ -4,8 +4,8 @@ function Skills({ personalSkills, handleSkills }) {
   const [skills, setSkills] = useState(personalSkills || "");
 
   const handleSkillsChange = (e) => {
-    setSkills(e.target.value);
-    handleSkills(e.target.value);
+    setSkills(e.target.value.split(","));
+    handleSkills(e.target.value.split(","));
   };
 
   return (
