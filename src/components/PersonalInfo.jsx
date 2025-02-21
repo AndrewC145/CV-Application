@@ -1,32 +1,29 @@
 import { useState } from "react";
 
-function PersonalInfo() {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
+function PersonalInfo({ personalInfo, handlePersonalInfo }) {
+  const [name, setName] = useState(personalInfo.name);
+  const [email, setEmail] = useState(personalInfo.email);
+  const [phone, setPhone] = useState(personalInfo.phone);
+  const [location, setLocation] = useState(personalInfo.location);
 
-  const handleFullName = (e) => {
-    setFullName(e.target.value);
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+    handlePersonalInfo({ ...personalInfo, name: e.target.value });
   };
 
-  const handleEmail = (e) => {
+  const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    handlePersonalInfo({ ...personalInfo, email: e.target.value });
   };
 
-  const handlePhone = (e) => {
+  const handlePhoneChange = (e) => {
     setPhone(e.target.value);
+    handlePersonalInfo({ ...personalInfo, phone: e.target.value });
   };
 
-  const handleLocation = (e) => {
+  const handleLocationChange = (e) => {
     setLocation(e.target.value);
-  };
-
-  const handleSubmit = () => {
-    console.log("Full Name:", fullName);
-    console.log("Email:", email);
-    console.log("Phone Number:", phone);
-    console.log("Location:", location);
+    handlePersonalInfo({ ...personalInfo, location: e.target.value });
   };
 
   return (
@@ -39,8 +36,8 @@ function PersonalInfo() {
           id="name"
           placeholder="Example: John Doe"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
-          value={fullName}
-          onChange={handleFullName}
+          value={name}
+          onChange={handleNameChange}
         ></input>
       </label>
       <label htmlFor="email" className="flex flex-col font-medium">
@@ -51,7 +48,7 @@ function PersonalInfo() {
           placeholder="Example: johndoe@gmail.com"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
           value={email}
-          onChange={handleEmail}
+          onChange={handleEmailChange}
         ></input>
       </label>
       <label htmlFor="phoneNum" className="flex flex-col font-medium">
@@ -62,7 +59,7 @@ function PersonalInfo() {
           placeholder="Example: 123-456-7890"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
           value={phone}
-          onChange={handlePhone}
+          onChange={handlePhoneChange}
         ></input>
       </label>
       <label htmlFor="location" className="flex flex-col font-medium">
@@ -73,15 +70,9 @@ function PersonalInfo() {
           placeholder="Example: New York, NY"
           className="rounded-md border-2 border-gray-300 p-2 font-normal"
           value={location}
-          onChange={handleLocation}
+          onChange={handleLocationChange}
         ></input>
       </label>
-      <button
-        className="w-[50%] cursor-pointer rounded-md bg-blue-500 p-2 text-white sm:w-[30%] md:w-[60%] xl:w-[40%]"
-        onClick={handleSubmit}
-      >
-        Submit Info
-      </button>
     </div>
   );
 }

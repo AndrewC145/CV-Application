@@ -1,14 +1,13 @@
 import { useState } from "react";
 import DeleteIcon from "../svg/delete.svg";
 
-function Experience() {
-  const [companyName, setCompanyName] = useState("");
-  const [position, setPosition] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [location, setLocation] = useState("");
-  const [description, setDescription] = useState("");
-  const [experience, setExperience] = useState([]);
+function Experience({ experienceInfo, handleExperienceInfo }) {
+  const [companyName, setCompanyName] = useState(experienceInfo.companyName || "");
+  const [position, setPosition] = useState(experienceInfo.position || "");
+  const [startDate, setStartDate] = useState(experienceInfo.startDate || "");
+  const [endDate, setEndDate] = useState(experienceInfo.endDate || "");
+  const [location, setLocation] = useState(experienceInfo.location || "");
+  const [description, setDescription] = useState(experienceInfo.description || "");
 
   const handleCompanyName = (e) => {
     setCompanyName(e.target.value);
@@ -36,10 +35,21 @@ function Experience() {
 
   const addExperience = () => {
     if (companyName.trim() !== "" && position.trim() !== "") {
-      setExperience((prevExperience) => [
-        ...prevExperience,
-        { companyName, position, startDate, endDate, location, description },
-      ]);
+      const newExperience = {
+        id: crypto.randomUUID(),
+        companyName,
+        position,
+        startDate,
+        endDate,
+        location,
+        description,
+      };
+
+      handleExperienceInfo((prevExperience) => {
+        const updatedExperiences = [...prevExperience, newExperience];
+        console.log(updatedExperiences);
+        return updatedExperiences;
+      });
 
       setCompanyName("");
       setPosition("");
@@ -51,15 +61,18 @@ function Experience() {
   };
 
   const removeExperience = (index) => {
-    const updatedExperiences = experience.filter((_, i) => i !== index);
-    setExperience(updatedExperiences);
+    handleExperienceInfo((prevExperience) => {
+      const updatedExperiences = prevExperience.filter((_, i) => i !== index);
+      console.log(updatedExperiences);
+      return updatedExperiences;
+    });
   };
 
   return (
     <div className="flex flex-col gap-4 p-4 md:w-[35%] lg:w-[30%]">
       <h1 className="text-2xl font-bold">Work Experience</h1>
       <div className="flex flex-col gap-4">
-        {experience.map((exp, index) => (
+        {experienceInfo.map((exp, index) => (
           <div
             key={index}
             className="flex flex-wrap items-center justify-between gap-4 rounded-md border-2 border-red-300 p-2"
@@ -104,7 +117,7 @@ function Experience() {
             type="text"
             id="workStart"
             placeholder="Example: 2019"
-            className="rounded-md border-2 border-gray-300 p-2 font-normal"
+            className="w-full rounded-md border-2 border-gray-300 p-2 font-normal"
             value={startDate}
             onChange={handleStartDate}
           ></input>
@@ -115,7 +128,7 @@ function Experience() {
             type="text"
             id="workEnd"
             placeholder="Example: 2024"
-            className="rounded-md border-2 border-gray-300 p-2 font-normal"
+            className="w-full rounded-md border-2 border-gray-300 p-2 font-normal"
             value={endDate}
             onChange={handleEndDate}
           ></input>

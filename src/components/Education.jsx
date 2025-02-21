@@ -1,13 +1,12 @@
 import { useState } from "react";
 import DeleteIcon from "../svg/delete.svg";
 
-function Education() {
-  const [school, setSchool] = useState("");
-  const [degree, setDegree] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [location, setLocation] = useState("");
-  const [educations, setEducations] = useState([]);
+function Education({ educationInfo, handleEducationInfo }) {
+  const [school, setSchool] = useState(educationInfo.school || "");
+  const [degree, setDegree] = useState(educationInfo.degree || "");
+  const [startDate, setStartDate] = useState(educationInfo.startDate || "");
+  const [endDate, setEndDate] = useState(educationInfo.endDate || "");
+  const [location, setLocation] = useState(educationInfo.location || "");
 
   const handleSchool = (e) => {
     setSchool(e.target.value);
@@ -31,10 +30,19 @@ function Education() {
 
   const addEducation = () => {
     if (school.trim() !== "" && degree.trim() !== "") {
-      setEducations((prevEducations) => [
-        ...prevEducations,
-        { school, degree, startDate, endDate, location },
-      ]);
+      const newEducation = {
+        id: crypto.randomUUID(),
+        school,
+        degree,
+        startDate,
+        endDate,
+        location,
+      };
+      handleEducationInfo((prevEducation) => {
+        const updatedEducation = [...prevEducation, newEducation];
+        console.log(updatedEducation);
+        return updatedEducation;
+      });
       setSchool("");
       setDegree("");
       setStartDate("");
@@ -44,15 +52,18 @@ function Education() {
   };
 
   const removeEducation = (index) => {
-    const updatedEducations = educations.filter((_, i) => i !== index);
-    setEducations(updatedEducations);
+    handleEducationInfo((prevEducation) => {
+      const updatedEducation = prevEducation.filter((_, i) => i !== index);
+      console.log(updatedEducation);
+      return updatedEducation;
+    });
   };
 
   return (
     <div className="flex flex-col gap-4 p-4 md:w-[35%] lg:w-[30%]">
       <h1 className="text-2xl font-bold">Education</h1>
       <div className="flex flex-col gap-4">
-        {educations.map((education, index) => (
+        {educationInfo.map((education, index) => (
           <div
             key={index}
             className="flex flex-wrap items-center justify-between gap-4 rounded-md border-2 border-red-300 p-2"
