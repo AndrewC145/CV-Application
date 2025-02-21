@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DeleteIcon from "../svg/delete.svg";
 
+// experienceInfo and handleExperienceInfo are passed as props from App.jsx by the default experiences and setExperiences state variables
 function Experience({ experienceInfo, handleExperienceInfo }) {
   const [companyName, setCompanyName] = useState(experienceInfo.companyName || "");
   const [position, setPosition] = useState(experienceInfo.position || "");
@@ -9,6 +10,7 @@ function Experience({ experienceInfo, handleExperienceInfo }) {
   const [location, setLocation] = useState(experienceInfo.location || "");
   const [description, setDescription] = useState(experienceInfo.description || "");
 
+  // Functions to handle the changes in the Experience Information
   const handleCompanyName = (e) => {
     setCompanyName(e.target.value);
   };
@@ -35,6 +37,7 @@ function Experience({ experienceInfo, handleExperienceInfo }) {
 
   const addExperience = () => {
     if (companyName.trim() !== "" && position.trim() !== "") {
+      // Creates a new experience object containing the companyName, position, start date, end date, location, and description state variables
       const newExperience = {
         id: crypto.randomUUID(),
         companyName,
@@ -45,9 +48,9 @@ function Experience({ experienceInfo, handleExperienceInfo }) {
         description,
       };
 
+      // Updates the experienceInfo state with the new experience object
       handleExperienceInfo((prevExperience) => {
         const updatedExperiences = [...prevExperience, newExperience];
-        console.log(updatedExperiences);
         return updatedExperiences;
       });
 
@@ -60,6 +63,7 @@ function Experience({ experienceInfo, handleExperienceInfo }) {
     }
   };
 
+  // Updates the experienceInfo state by filtering out the experience object at the specified index
   const removeExperience = (index) => {
     handleExperienceInfo((prevExperience) => {
       const updatedExperiences = prevExperience.filter((_, i) => i !== index);
@@ -72,6 +76,7 @@ function Experience({ experienceInfo, handleExperienceInfo }) {
     <div className="flex flex-col gap-4 p-4">
       <h1 className="text-2xl font-bold">Work Experience</h1>
       <div className="flex flex-col gap-4">
+        {/* Maps through the experienceInfo array and displays the company name and position */}
         {experienceInfo.map((exp, index) => (
           <div
             key={index}

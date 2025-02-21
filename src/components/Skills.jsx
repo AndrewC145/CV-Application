@@ -1,6 +1,8 @@
 import { useState } from "react";
 
+// personalSkills and handleSkills are passed as props from App.jsx by the default skills and setSkills state variables
 function Skills({ personalSkills, handleSkills }) {
+  // State for the Skills
   const [skills, setSkills] = useState(personalSkills || "");
 
   const handleSkillsChange = (e) => {

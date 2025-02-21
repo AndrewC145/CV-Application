@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DeleteIcon from "../svg/delete.svg";
 
+// educationInfo and handleEducationInfo are passed as props from App.jsx by the default educations and setEducations state variables
 function Education({ educationInfo, handleEducationInfo }) {
   const [school, setSchool] = useState(educationInfo.school || "");
   const [degree, setDegree] = useState(educationInfo.degree || "");
@@ -8,6 +9,7 @@ function Education({ educationInfo, handleEducationInfo }) {
   const [endDate, setEndDate] = useState(educationInfo.endDate || "");
   const [location, setLocation] = useState(educationInfo.location || "");
 
+  // Functions to handle the changes in the Education Information
   const handleSchool = (e) => {
     setSchool(e.target.value);
   };
@@ -31,6 +33,7 @@ function Education({ educationInfo, handleEducationInfo }) {
   const addEducation = () => {
     if (school.trim() !== "" && degree.trim() !== "") {
       const newEducation = {
+        // Creates a new education object containing the school, degree, start date, end date, and location state variables
         id: crypto.randomUUID(),
         school,
         degree,
@@ -38,9 +41,9 @@ function Education({ educationInfo, handleEducationInfo }) {
         endDate,
         location,
       };
+      // Updates the educationInfo state with the new education object
       handleEducationInfo((prevEducation) => {
         const updatedEducation = [...prevEducation, newEducation];
-        console.log(updatedEducation);
         return updatedEducation;
       });
       setSchool("");
@@ -52,9 +55,9 @@ function Education({ educationInfo, handleEducationInfo }) {
   };
 
   const removeEducation = (index) => {
+    // Updates the educationInfo state by filtering out the education object at the specified index
     handleEducationInfo((prevEducation) => {
       const updatedEducation = prevEducation.filter((_, i) => i !== index);
-      console.log(updatedEducation);
       return updatedEducation;
     });
   };
@@ -63,6 +66,7 @@ function Education({ educationInfo, handleEducationInfo }) {
     <div className="flex flex-col gap-4 p-4">
       <h1 className="text-2xl font-bold">Education</h1>
       <div className="flex flex-col gap-4">
+        {/* Maps through the educationInfo array and displays each education object */}
         {educationInfo.map((education, index) => (
           <div
             key={index}

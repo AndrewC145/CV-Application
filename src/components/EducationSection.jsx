@@ -4,6 +4,7 @@ function EducationSection({ educationInformation }) {
       <div className="mb-2 border-b-2 border-gray-700">
         <h1 className="font-serif text-2xl font-bold">Education</h1>
       </div>
+      {/* Maps out the educationInformation array and displays the school, degree, start date, end date, and location */}
       {educationInformation.map((education) => (
         <div key={education.id} className="flex justify-between gap-2 pb-3">
           <div className="flex flex-col justify-start font-serif">

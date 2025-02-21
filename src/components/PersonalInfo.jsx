@@ -1,28 +1,35 @@
 import { useState } from "react";
 
+// personalInfo and handlePersonalInfo are passed as props from App.jsx by the default personalInfo and setPersonalInfo state variables
 function PersonalInfo({ personalInfo, handlePersonalInfo }) {
+  // State for the Personal Information
   const [name, setName] = useState(personalInfo.name);
   const [email, setEmail] = useState(personalInfo.email);
   const [phone, setPhone] = useState(personalInfo.phone);
   const [location, setLocation] = useState(personalInfo.location);
 
+  // Functions to handle the changes in the Personal Information
   const handleNameChange = (e) => {
     setName(e.target.value);
+    // Updates the personalInfo state with the new name
     handlePersonalInfo({ ...personalInfo, name: e.target.value });
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    // Updates the personalInfo state with the new email
     handlePersonalInfo({ ...personalInfo, email: e.target.value });
   };
 
   const handlePhoneChange = (e) => {
     setPhone(e.target.value);
+    // Updates the personalInfo state with the new phone number
     handlePersonalInfo({ ...personalInfo, phone: e.target.value });
   };
 
   const handleLocationChange = (e) => {
     setLocation(e.target.value);
+    // Updates the personalInfo state with the new location
     handlePersonalInfo({ ...personalInfo, location: e.target.value });
   };
 

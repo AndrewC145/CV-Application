@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
@@ -7,6 +6,7 @@ import Resume from "./components/Resume";
 import Skills from "./components/Skills";
 
 function App() {
+  // Starting State for the Personal Information, Education, Experience, and Skills
   const [personalInfo, setPersonalInfo] = useState({
     name: "John Doe",
     email: "johndoe@gmail.com",
@@ -65,13 +65,19 @@ function App() {
     "CSS",
   ]);
 
+  // Returned JSX
   return (
     <div className="container mx-auto flex">
       <div className="flex w-[30%] flex-col gap-4">
-        <PersonalInfo personalInfo={personalInfo} handlePersonalInfo={setPersonalInfo} />
-        <Education educationInfo={educations} handleEducationInfo={setEducations} />
-        <Experience experienceInfo={experiences} handleExperienceInfo={setExperiences} />
-        <Skills skills={skills} handleSkills={setSkills} />
+        {/* Personal Information, Education, Experience, and Skills Components */}
+        <PersonalInfo personalInfo={personalInfo} handlePersonalInfo={setPersonalInfo} />{" "}
+        {/* Pass personalInfo and setPersonalInfo as props to be used */}
+        <Education educationInfo={educations} handleEducationInfo={setEducations} />{" "}
+        {/* Pass educations and setEducations as props to be used */}
+        <Experience experienceInfo={experiences} handleExperienceInfo={setExperiences} />{" "}
+        {/* Pass experiences and setExperiences as props to be used */}
+        <Skills skills={skills} handleSkills={setSkills} />{" "}
+        {/* Pass skills and setSkills as props to be used */}
       </div>
       <div className="flex w-[70%]">
         <Resume
@@ -80,6 +86,7 @@ function App() {
           experienceInformation={experiences}
           skillsInformation={skills}
         />
+        {/* Pass necessary props to be used in the resume component */}
       </div>
     </div>
   );
