@@ -3,7 +3,7 @@ import locationIcon from "../svg/location.svg";
 
 function PersonalSection({ personalInformation }) {
   return (
-    <div className="mx-auto flex flex-col items-center gap-2 p-4 md:w-[35%] lg:w-[30%]">
+    <div className="mx-auto flex w-full flex-col items-center gap-2 p-4">
       <h1 className="font-serif text-3xl font-bold md:text-4xl lg:text-5xl">
         {personalInformation.name}
       </h1>

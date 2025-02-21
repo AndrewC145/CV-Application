@@ -60,7 +60,7 @@ function Education({ educationInfo, handleEducationInfo }) {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-4 md:w-[35%] lg:w-[30%]">
+    <div className="flex flex-col gap-4 p-4">
       <h1 className="text-2xl font-bold">Education</h1>
       <div className="flex flex-col gap-4">
         {educationInfo.map((education, index) => (

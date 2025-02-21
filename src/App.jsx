@@ -3,9 +3,7 @@ import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
-import PersonalSection from "./components/PersonalSection";
-import EducationSection from "./components/EducationSection";
-import ExperienceSection from "./components/ExperienceSection";
+import Resume from "./components/Resume";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -57,13 +55,19 @@ function App() {
   ]);
 
   return (
-    <div className="container mx-auto">
-      <PersonalInfo personalInfo={personalInfo} handlePersonalInfo={setPersonalInfo} />
-      <Education educationInfo={educations} handleEducationInfo={setEducations} />
-      <Experience experienceInfo={experiences} handleExperienceInfo={setExperiences} />
-      <PersonalSection personalInformation={personalInfo} />
-      <EducationSection educationInformation={educations} />
-      <ExperienceSection experienceInformation={experiences} />
+    <div className="container mx-auto flex">
+      <div className="flex w-[30%] flex-col gap-4">
+        <PersonalInfo personalInfo={personalInfo} handlePersonalInfo={setPersonalInfo} />
+        <Education educationInfo={educations} handleEducationInfo={setEducations} />
+        <Experience experienceInfo={experiences} handleExperienceInfo={setExperiences} />
+      </div>
+      <div className="flex w-[70%]">
+        <Resume
+          personalInformation={personalInfo}
+          educationInformation={educations}
+          experienceInformation={experiences}
+        />
+      </div>
     </div>
   );
 }

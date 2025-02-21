@@ -27,7 +27,7 @@ function PersonalInfo({ personalInfo, handlePersonalInfo }) {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-4 md:w-[35%] lg:w-[30%]">
+    <div className="flex flex-col gap-4 p-4">
       <h1 className="text-2xl font-bold">Personal Information</h1>
       <label htmlFor="name" className="flex flex-col font-medium">
         Full Name
