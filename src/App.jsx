@@ -3,6 +3,7 @@ import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import PersonalSection from "./components/PersonalSection";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -58,6 +59,7 @@ function App() {
       <PersonalInfo personalInfo={personalInfo} handlePersonalInfo={setPersonalInfo} />
       <Education educationInfo={educations} handleEducationInfo={setEducations} />
       <Experience experienceInfo={experiences} handleExperienceInfo={setExperiences} />
+      <PersonalSection personalInformation={personalInfo} />
     </div>
   );
 }
