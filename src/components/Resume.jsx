@@ -10,7 +10,7 @@ function Resume({
   skillsInformation,
 }) {
   return (
-    <div className="w-full p-4">
+    <div className="cv-preview w-full p-4">
       <PersonalSection personalInformation={personalInformation} />
       <EducationSection educationInformation={educationInformation} />
       <ExperienceSection experienceInformation={experienceInformation} />
