@@ -4,6 +4,7 @@ import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Resume from "./components/Resume";
 import Skills from "./components/Skills";
+import Download from "./components/Download";
 
 function App() {
   // Starting State for the Personal Information, Education, Experience, and Skills
@@ -67,8 +68,8 @@ function App() {
 
   // Returned JSX
   return (
-    <div className="container mx-auto flex">
-      <div className="flex w-[30%] flex-col gap-4">
+    <div className="container mx-auto flex flex-col lg:flex-row">
+      <div className="flex flex-col gap-4 sm:w-full lg:w-[30%]">
         {/* Personal Information, Education, Experience, and Skills Components */}
         <PersonalInfo personalInfo={personalInfo} handlePersonalInfo={setPersonalInfo} />{" "}
         {/* Pass personalInfo and setPersonalInfo as props to be used */}
@@ -79,7 +80,7 @@ function App() {
         <Skills skills={skills} handleSkills={setSkills} />{" "}
         {/* Pass skills and setSkills as props to be used */}
       </div>
-      <div className="flex w-[70%]">
+      <div className="flex flex-col gap-4 sm:w-full lg:w-[70%]">
         <Resume
           personalInformation={personalInfo}
           educationInformation={educations}
@@ -87,6 +88,9 @@ function App() {
           skillsInformation={skills}
         />
         {/* Pass necessary props to be used in the resume component */}
+        <div className="flex justify-center">
+          <Download />
+        </div>
       </div>
     </div>
   );
